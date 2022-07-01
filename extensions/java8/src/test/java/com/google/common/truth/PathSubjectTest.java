@@ -13,6 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.google.common.truth;
 
 import static com.google.common.truth.Truth8.assertThat;
@@ -21,6 +22,7 @@ import java.nio.file.Paths;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
+/**Path of Subject Test. */
 
 @RunWith(JUnit4.class)
 public class PathSubjectTest {

@@ -370,8 +370,9 @@ abstract class DiffResult extends RecursableDiffEntity.WithoutResultCode {
               sb.append("\n");
             }
             return;
+          default:
+            throw new AssertionError("Impossible: " + result());
         }
-        throw new AssertionError("Impossible: " + result());
       }
 
       @Override
@@ -558,8 +559,9 @@ abstract class DiffResult extends RecursableDiffEntity.WithoutResultCode {
         case UNKNOWN_FIELD_DESCRIPTOR:
           printFieldValue(subScopeId.unknownFieldDescriptor(), o, sb);
           return;
+        default:
+          throw new AssertionError(subScopeId.kind());
       }
-      throw new AssertionError(subScopeId.kind());
     }
 
     default void printFieldValue(FieldDescriptor field, Object value, StringBuilder sb) {

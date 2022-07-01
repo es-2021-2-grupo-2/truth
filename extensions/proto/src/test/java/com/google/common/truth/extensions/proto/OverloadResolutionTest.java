@@ -38,6 +38,7 @@ import org.junit.runners.JUnit4;
  */
 @RunWith(JUnit4.class)
 public class OverloadResolutionTest extends ProtoSubjectTestBase {
+  /**Load the Resolution Test.*/
   public OverloadResolutionTest() {
     // We don't bother testing Proto3 because it's immaterial to this test, and we want to ensure
     // that using Iterable<MyMessage> works, not just Iterable<Message>.

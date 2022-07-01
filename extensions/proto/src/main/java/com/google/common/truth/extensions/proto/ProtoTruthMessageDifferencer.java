@@ -772,7 +772,7 @@ final class ProtoTruthMessageDifferencer {
       double x,
       double y,
       Optional<Correspondence<Number, Number>> correspondence
-      ) {
+  ) {
     if (correspondence.isPresent()) {
       return correspondence.get().compare(x, y);
     } else {
@@ -784,7 +784,7 @@ final class ProtoTruthMessageDifferencer {
       float x,
       float y,
       Optional<Correspondence<Number, Number>> correspondence
-      ) {
+  ) {
     if (correspondence.isPresent()) {
       return correspondence.get().compare(x, y);
     } else {

@@ -373,13 +373,13 @@ abstract class FluentEqualityConfig implements FieldScopeLogicContainer<FluentEq
             // (M a, M e) ->
             //     ProtoTruth.assertThat(a).usingConfig(FluentEqualityConfig.this).testIsEqualTo(e),
             new Correspondence.BinaryPredicate<M, M>() {
-              @Override
+            @Override
               public boolean apply(@Nullable M actual, @Nullable M expected) {
-                return ProtoTruth.assertThat(actual)
+              return ProtoTruth.assertThat(actual)
                     .usingConfig(FluentEqualityConfig.this)
                     .testIsEqualTo(expected);
-              }
-            },
+            }
+          },
             "is equivalent according to assertThat(proto)"
                 + usingCorrespondenceString(optDescriptor)
                 + ".isEqualTo(target) to")

@@ -13,6 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.google.common.truth.extensions.proto;
 
 import com.google.common.truth.Ordered;
@@ -533,7 +534,8 @@ public interface MapWithProtoValuesFluentAssertion<M extends Message> {
   @CanIgnoreReturnValue
   Ordered containsExactlyEntriesIn(Map<?, ? extends M> expectedMap);
 
-  /**
+  /**Especifications of equals method.
+
    * @deprecated Do not call {@code equals()} on a {@code MapWithProtoValuesFluentAssertion}.
    * @see com.google.common.truth.Subject#equals(Object)
    */
@@ -541,7 +543,8 @@ public interface MapWithProtoValuesFluentAssertion<M extends Message> {
   @Deprecated
   boolean equals(Object o);
 
-  /**
+  /**Especifications of hashCode method.
+
    * @deprecated {@code MapWithProtoValuesFluentAssertion} does not support {@code hashCode()}.
    * @see com.google.common.truth.Subject#hashCode()
    */

@@ -137,7 +137,8 @@ public class LiteProtoSubject extends Subject {
     }
   }
 
-  /**
+  /** Compare if a builder is equal to another.
+
    * @deprecated A Builder can never compare equal to a MessageLite instance. Use {@code build()},
    *     or {@code buildPartial()} on the argument to get a MessageLite for comparison instead. Or,
    *     if you are passing {@code null}, use {@link #isNull()}.
@@ -188,7 +189,8 @@ public class LiteProtoSubject extends Subject {
     }
   }
 
-  /**
+  /** Compare if builder is not equal to another.
+
    * @deprecated A Builder will never compare equal to a MessageLite instance. Use {@code build()},
    *     or {@code buildPartial()} on the argument to get a MessageLite for comparison instead. Or,
    *     if you are passing {@code null}, use {@link #isNotNull()}.

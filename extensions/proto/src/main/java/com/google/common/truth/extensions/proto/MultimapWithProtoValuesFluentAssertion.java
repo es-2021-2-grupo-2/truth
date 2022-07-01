@@ -13,6 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.google.common.truth.extensions.proto;
 
 import com.google.common.collect.Multimap;
@@ -538,7 +539,8 @@ public interface MultimapWithProtoValuesFluentAssertion<M extends Message> {
   @CanIgnoreReturnValue
   public Ordered containsExactly(@Nullable Object k0, @Nullable M v0, @Nullable Object... rest);
 
-  /**
+  /**Especifications of equals method.
+
    * @deprecated Do not call {@code equals()} on a {@code MultimapWithProtoValuesFluentAssertion}.
    * @see com.google.common.truth.Subject#equals(Object)
    */
@@ -546,7 +548,8 @@ public interface MultimapWithProtoValuesFluentAssertion<M extends Message> {
   @Deprecated
   boolean equals(Object o);
 
-  /**
+  /**Especifications of hashCode method.
+
    * @deprecated {@code MultimapWithProtoValuesFluentAssertion} does not support {@code hashCode()}.
    * @see com.google.common.truth.Subject#hashCode()
    */
