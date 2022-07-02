@@ -45,7 +45,6 @@ public final class ExpectFailure8Test {
     AssertionError unused =
         expectFailureAbout(
             STRINGS,
-            (SimpleSubjectBuilderCallback<StringSubject, String>)
                 whenTesting -> whenTesting.that("foo").contains("bar"));
   }
 

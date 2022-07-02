@@ -175,11 +175,11 @@ public class TruthFailureSubjectTest extends BaseSubjectTestCase {
   }
 
   private TruthFailureSubject expectFailureWhenTestingThat(AssertionError failure) {
-    return (TruthFailureSubject) expectFailure.whenTesting().about(truthFailures()).that(failure);
+    return expectFailure.whenTesting().about(truthFailures()).that(failure);
   }
 
   private AssertionErrorWithFacts failure(Fact... facts) {
     return new AssertionErrorWithFacts(
-        ImmutableList.<String>of(), ImmutableList.copyOf(facts), /* cause= */ null);
+        ImmutableList.of(), ImmutableList.copyOf(facts), /* cause= */ null);
   }
 }

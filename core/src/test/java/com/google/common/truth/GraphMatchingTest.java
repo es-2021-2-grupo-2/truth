@@ -158,7 +158,7 @@ public final class GraphMatchingTest {
 
     /** Generates a test instance with an empty bipartite graph. */
     static TestInstance empty() {
-      return new TestInstance(ImmutableListMultimap.<String, String>of());
+      return new TestInstance(ImmutableListMultimap.of());
     }
 
     /**

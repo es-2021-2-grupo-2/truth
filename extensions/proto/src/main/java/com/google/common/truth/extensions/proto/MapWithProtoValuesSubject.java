@@ -634,7 +634,7 @@ public class MapWithProtoValuesSubject<M extends Message> extends MapSubject {
     return comparingValuesUsing(
         config
             .withExpectedMessages(expectedValues)
-            .<M>toCorrespondence(FieldScopeUtil.getSingleDescriptor(actual.values())));
+            .toCorrespondence(FieldScopeUtil.getSingleDescriptor(actual.values())));
   }
 
   // The UsingCorrespondence methods have conflicting erasure with default MapSubject methods,

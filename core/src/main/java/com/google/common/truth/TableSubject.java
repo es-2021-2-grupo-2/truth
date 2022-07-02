@@ -74,7 +74,7 @@ public final class TableSubject extends Subject {
   /** Fails if the table does not contain the given cell. */
   public void containsCell(
       @Nullable Object rowKey, @Nullable Object colKey, @Nullable Object value) {
-    containsCell(Tables.<Object, Object, Object>immutableCell(rowKey, colKey, value));
+    containsCell(Tables.immutableCell(rowKey, colKey, value));
   }
 
   /** Fails if the table does not contain the given cell. */
@@ -86,7 +86,7 @@ public final class TableSubject extends Subject {
   /** Fails if the table contains the given cell. */
   public void doesNotContainCell(
       @Nullable Object rowKey, @Nullable Object colKey, @Nullable Object value) {
-    doesNotContainCell(Tables.<Object, Object, Object>immutableCell(rowKey, colKey, value));
+    doesNotContainCell(Tables.immutableCell(rowKey, colKey, value));
   }
 
   /** Fails if the table contains the given cell. */

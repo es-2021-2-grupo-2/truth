@@ -528,7 +528,7 @@ public interface MultimapWithProtoValuesFluentAssertion<M extends Message> {
 
   /** Fails if the multimap is not empty. */
   @CanIgnoreReturnValue
-  public Ordered containsExactly();
+  Ordered containsExactly();
 
   /**
    * Fails if the multimap does not contain exactly the given set of key/value pairs.
@@ -537,7 +537,7 @@ public interface MultimapWithProtoValuesFluentAssertion<M extends Message> {
    * key/value pairs at compile time. Please make sure you provide varargs in key/value pairs!
    */
   @CanIgnoreReturnValue
-  public Ordered containsExactly(@Nullable Object k0, @Nullable M v0, @Nullable Object... rest);
+  Ordered containsExactly(@Nullable Object k0, @Nullable M v0, @Nullable Object... rest);
 
   /**Especifications of equals method.
 

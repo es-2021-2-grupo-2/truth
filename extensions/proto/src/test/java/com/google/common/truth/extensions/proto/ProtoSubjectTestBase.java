@@ -53,7 +53,7 @@ import org.junit.Rule;
 public class ProtoSubjectTestBase {
 
   // Type information for subclasses.
-  static enum TestType {
+  enum TestType {
     IMMUTABLE_PROTO2(TestMessage2.getDefaultInstance()),
     PROTO3(TestMessage3.getDefaultInstance());
 

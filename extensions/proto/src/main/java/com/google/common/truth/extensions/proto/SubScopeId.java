@@ -23,7 +23,7 @@ import com.google.protobuf.Descriptors.FieldDescriptor;
 abstract class SubScopeId {
   enum Kind {
     FIELD_DESCRIPTOR,
-    UNKNOWN_FIELD_DESCRIPTOR;
+    UNKNOWN_FIELD_DESCRIPTOR
   }
 
   abstract Kind kind();

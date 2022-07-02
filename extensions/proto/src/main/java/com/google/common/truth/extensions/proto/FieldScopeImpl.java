@@ -72,7 +72,7 @@ abstract class FieldScopeImpl extends FieldScope {
     if (emptyOrAllNull(messages)) {
       return create(
           FieldScopeLogic.none(),
-          Functions.constant(String.format("FieldScopes.fromSetFields(%s)", messages.toString())));
+          Functions.constant(String.format("FieldScopes.fromSetFields(%s)", messages)));
     }
 
     Optional<Descriptor> optDescriptor = FieldScopeUtil.getSingleDescriptor(messages);

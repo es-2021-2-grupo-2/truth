@@ -251,7 +251,7 @@ public class IterableSubjectTest extends BaseSubjectTestCase {
 
   @Test
   public void iterableContainsAtLeastWithNull() {
-    assertThat(asList(1, null, 3)).containsAtLeast(3, (Integer) null);
+    assertThat(asList(1, null, 3)).containsAtLeast(3, null);
   }
 
   @Test
@@ -408,7 +408,7 @@ public class IterableSubjectTest extends BaseSubjectTestCase {
 
   @Test
   public void iterableContainsAtLeastInOrderWithOneShotIterable() {
-    final Iterable<Object> iterable = Arrays.<Object>asList(2, 1, null, 4, "a", 3, "b");
+    final Iterable<Object> iterable = Arrays.asList(2, 1, null, 4, "a", 3, "b");
     final Iterator<Object> iterator = iterable.iterator();
     Iterable<Object> oneShot =
         new Iterable<Object>() {
@@ -602,7 +602,7 @@ public class IterableSubjectTest extends BaseSubjectTestCase {
 
   @Test
   public void iterableContainsExactlyWithNullOutOfOrder() {
-    assertThat(asList(1, null, 3)).containsExactly(1, 3, (Integer) null);
+    assertThat(asList(1, null, 3)).containsExactly(1, 3, null);
   }
 
   @Test

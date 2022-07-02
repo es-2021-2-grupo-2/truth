@@ -295,8 +295,7 @@ final class Platform {
   }
 
   private static LinkageError newLinkageError(Throwable cause) {
-    LinkageError error = new LinkageError(cause.toString());
-    error.initCause(cause);
+    LinkageError error = new LinkageError(cause.toString(), cause);
     return error;
   }
 }

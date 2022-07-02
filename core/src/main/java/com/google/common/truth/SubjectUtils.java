@@ -134,7 +134,7 @@ final class SubjectUtils {
     } else {
       return new DuplicateGroupedAndTyped(
           countDuplicatesToMultiset(itemsIterable),
-          /* homogeneousTypeToDisplay= */ Optional.<String>absent());
+          /* homogeneousTypeToDisplay= */ Optional.absent());
     }
   }
 

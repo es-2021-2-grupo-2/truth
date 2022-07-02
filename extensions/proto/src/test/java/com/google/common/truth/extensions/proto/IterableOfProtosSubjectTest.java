@@ -59,13 +59,13 @@ public class IterableOfProtosSubjectTest extends ProtoSubjectTestBase {
 
   @Test
   public void testPlain_isEmpty() {
-    expectThat(ImmutableList.<Message>of()).isEmpty();
+    expectThat(ImmutableList.of()).isEmpty();
     expectThat(listOf(message1)).isNotEmpty();
 
     expectFailureWhenTesting().that(listOf(message1)).isEmpty();
     expectThatFailure().isNotNull();
 
-    expectFailureWhenTesting().that(ImmutableList.<Message>of()).isNotEmpty();
+    expectFailureWhenTesting().that(ImmutableList.of()).isNotEmpty();
     expectThatFailure().isNotNull();
   }
 

@@ -923,7 +923,7 @@ public class FieldScopesTest extends ProtoSubjectTestBase {
     messages.add(null);
 
     expectThat(listOf(message1, message2))
-        .withPartialScope(FieldScopes.fromSetFields(ImmutableList.<Message>of()))
+        .withPartialScope(FieldScopes.fromSetFields(ImmutableList.of()))
         .containsExactly(eqIgnoredMessage1, eqIgnoredMessage2);
     expectThat(listOf(message1, message2))
         .withPartialScope(FieldScopes.fromSetFields(messages))
@@ -931,7 +931,7 @@ public class FieldScopesTest extends ProtoSubjectTestBase {
 
     expectFailureWhenTesting()
         .that(listOf(message1, message2))
-        .withPartialScope(FieldScopes.fromSetFields(ImmutableList.<Message>of()))
+        .withPartialScope(FieldScopes.fromSetFields(ImmutableList.of()))
         .containsNoneOf(eqIgnoredMessage1, eqIgnoredMessage2);
 
     expectFailureWhenTesting()

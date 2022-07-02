@@ -734,7 +734,7 @@ public class IterableOfProtosSubject<M extends Message> extends IterableSubject 
               subject
                   .config
                   .withExpectedMessages(messages)
-                  .<M>toCorrespondence(FieldScopeUtil.getSingleDescriptor(subject.actual)));
+                  .toCorrespondence(FieldScopeUtil.getSingleDescriptor(subject.actual)));
       if (keyFunction != null) {
         usingCorrespondence = usingCorrespondence.displayingDiffsPairedBy(keyFunction);
       }
