@@ -13,6 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.google.common.truth.extensions.proto;
 
 import static com.google.common.truth.extensions.proto.ProtoTruth.assertThat;
@@ -56,7 +57,10 @@ public class FieldScopesTest extends ProtoSubjectTestBase {
   private final int badFieldNumber;
   private final FieldDescriptor goodFieldDescriptor;
   private final FieldDescriptor badFieldDescriptor;
+  /**Field Scopes Test.
 
+   * @param testType Type of test.
+   */
   public FieldScopesTest(TestType testType) {
     super(testType);
 
@@ -856,12 +860,12 @@ public class FieldScopesTest extends ProtoSubjectTestBase {
 
   @Test
   public void testFromSetFields_skipNulls() {
-    Message message1 = parse("o_int: 1 r_string: \"foo\" r_string: \"bar\"");
-    Message eqMessage1 = parse("o_int: 1 r_string: \"foo\" r_string: \"bar\"");
-    Message eqIgnoredMessage1 = parse("o_int: 2 r_string: \"foo\" r_string: \"bar\"");
-    Message message2 = parse("o_int: 3 r_string: \"baz\" r_string: \"qux\"");
-    Message eqMessage2 = parse("o_int: 3 r_string: \"baz\" r_string: \"qux\"");
-    Message eqIgnoredMessage2 = parse("o_int: 4 r_string: \"baz\" r_string: \"qux\"");
+    final Message message1 = parse("o_int: 1 r_string: \"foo\" r_string: \"bar\"");
+    final Message eqMessage1 = parse("o_int: 1 r_string: \"foo\" r_string: \"bar\"");
+    final Message eqIgnoredMessage1 = parse("o_int: 2 r_string: \"foo\" r_string: \"bar\"");
+    final Message message2 = parse("o_int: 3 r_string: \"baz\" r_string: \"qux\"");
+    final Message eqMessage2 = parse("o_int: 3 r_string: \"baz\" r_string: \"qux\"");
+    final Message eqIgnoredMessage2 = parse("o_int: 4 r_string: \"baz\" r_string: \"qux\"");
 
     List<Message> messages = Lists.newArrayList();
     Message nullMessage = null;
@@ -919,7 +923,7 @@ public class FieldScopesTest extends ProtoSubjectTestBase {
     messages.add(null);
 
     expectThat(listOf(message1, message2))
-        .withPartialScope(FieldScopes.fromSetFields(ImmutableList.<Message>of()))
+        .withPartialScope(FieldScopes.fromSetFields(ImmutableList.of()))
         .containsExactly(eqIgnoredMessage1, eqIgnoredMessage2);
     expectThat(listOf(message1, message2))
         .withPartialScope(FieldScopes.fromSetFields(messages))
@@ -927,7 +931,7 @@ public class FieldScopesTest extends ProtoSubjectTestBase {
 
     expectFailureWhenTesting()
         .that(listOf(message1, message2))
-        .withPartialScope(FieldScopes.fromSetFields(ImmutableList.<Message>of()))
+        .withPartialScope(FieldScopes.fromSetFields(ImmutableList.of()))
         .containsNoneOf(eqIgnoredMessage1, eqIgnoredMessage2);
 
     expectFailureWhenTesting()

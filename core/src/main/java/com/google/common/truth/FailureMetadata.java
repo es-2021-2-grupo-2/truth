@@ -54,7 +54,7 @@ import org.checkerframework.checker.nullness.qual.Nullable;
 public final class FailureMetadata {
   static FailureMetadata forFailureStrategy(FailureStrategy failureStrategy) {
     return new FailureMetadata(
-        failureStrategy, ImmutableList.<LazyMessage>of(), ImmutableList.<Step>of());
+        failureStrategy, ImmutableList.of(), ImmutableList.of());
   }
 
   private final FailureStrategy strategy;
@@ -153,7 +153,7 @@ public final class FailureMetadata {
    */
   enum OldAndNewValuesAreSimilar {
     SIMILAR,
-    DIFFERENT;
+    DIFFERENT
   }
 
   /**
@@ -247,7 +247,7 @@ public final class FailureMetadata {
     }
     return descriptionIsInteresting
         ? ImmutableList.of(fact("value of", description))
-        : ImmutableList.<Fact>of();
+        : ImmutableList.of();
   }
 
   /**
@@ -312,7 +312,7 @@ public final class FailureMetadata {
                 // TODO(cpovirk): Use inferDescription() here when appropriate? But it can be long.
                 rootSubject.subject.typeDescription() + " was",
                 rootSubject.subject.actualCustomStringRepresentationForPackageMembersToCall()))
-        : ImmutableList.<Fact>of();
+        : ImmutableList.of();
   }
 
   /**

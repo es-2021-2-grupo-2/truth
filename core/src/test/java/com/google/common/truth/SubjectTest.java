@@ -131,7 +131,7 @@ public class SubjectTest extends BaseSubjectTestCase {
         subject.isNotSameInstanceAs(new Object());
 
         if (!(subject instanceof IterableSubject)) { // b/36000148
-          subject.isNotIn(ImmutableList.<Object>of());
+          subject.isNotIn(ImmutableList.of());
           subject.isNoneOf(new Object(), new Object());
         }
 
@@ -617,12 +617,12 @@ public class SubjectTest extends BaseSubjectTestCase {
 
   @Test
   public void isInNullInListWithNull() {
-    assertThat((String) null).isIn(oneShotIterable("a", "b", (String) null));
+    assertThat((String) null).isIn(oneShotIterable("a", "b", null));
   }
 
   @Test
   public void isInNonnullInListWithNull() {
-    assertThat("b").isIn(oneShotIterable("a", "b", (String) null));
+    assertThat("b").isIn(oneShotIterable("a", "b", null));
   }
 
   @Test
@@ -689,7 +689,7 @@ public class SubjectTest extends BaseSubjectTestCase {
     expectFailure
         .whenTesting()
         .that((String) null)
-        .isNotIn(oneShotIterable("a", "b", (String) null));
+        .isNotIn(oneShotIterable("a", "b", null));
   }
 
   @Test

@@ -13,6 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.google.common.truth.extensions.proto;
 
 import com.google.protobuf.Descriptors.FieldDescriptor;
@@ -485,7 +486,8 @@ public interface IterableOfProtosFluentAssertion<M extends Message>
   IterableOfProtosFluentAssertion<M> unpackingAnyUsing(
       TypeRegistry typeRegistry, ExtensionRegistry extensionRegistry);
 
-  /**
+  /**Equals especifications.
+
    * @deprecated Do not call {@code equals()} on a {@code IterableOfProtosFluentAssertion}.
    * @see com.google.common.truth.Subject#equals(Object)
    */
@@ -493,7 +495,8 @@ public interface IterableOfProtosFluentAssertion<M extends Message>
   @Deprecated
   boolean equals(Object o);
 
-  /**
+  /**HashCode especifications.
+
    * @deprecated {@code IterableOfProtosFluentAssertion} does not support {@code hashCode()}.
    * @see com.google.common.truth.Subject#hashCode()
    */

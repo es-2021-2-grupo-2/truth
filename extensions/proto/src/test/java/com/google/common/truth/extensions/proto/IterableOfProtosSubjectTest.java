@@ -59,13 +59,13 @@ public class IterableOfProtosSubjectTest extends ProtoSubjectTestBase {
 
   @Test
   public void testPlain_isEmpty() {
-    expectThat(ImmutableList.<Message>of()).isEmpty();
+    expectThat(ImmutableList.of()).isEmpty();
     expectThat(listOf(message1)).isNotEmpty();
 
     expectFailureWhenTesting().that(listOf(message1)).isEmpty();
     expectThatFailure().isNotNull();
 
-    expectFailureWhenTesting().that(ImmutableList.<Message>of()).isNotEmpty();
+    expectFailureWhenTesting().that(ImmutableList.of()).isNotEmpty();
     expectThatFailure().isNotNull();
   }
 
@@ -213,15 +213,15 @@ public class IterableOfProtosSubjectTest extends ProtoSubjectTestBase {
 
   @Test
   public void testPlain_isInOrder() {
-    expectThat(listOf(message1, eqMessage1, message2)).isInOrder(compareByOIntAscending());
-    expectThat(listOf(message1, message2)).isInStrictOrder(compareByOIntAscending());
+    expectThat(listOf(message1, eqMessage1, message2)).isInOrder(compareByoIntAscending());
+    expectThat(listOf(message1, message2)).isInStrictOrder(compareByoIntAscending());
 
-    expectFailureWhenTesting().that(listOf(message2, message1)).isInOrder(compareByOIntAscending());
+    expectFailureWhenTesting().that(listOf(message2, message1)).isInOrder(compareByoIntAscending());
     expectThatFailure().isNotNull();
 
     expectFailureWhenTesting()
         .that(listOf(message1, eqMessage1, message2))
-        .isInStrictOrder(compareByOIntAscending());
+        .isInStrictOrder(compareByoIntAscending());
     expectThatFailure().isNotNull();
   }
 
@@ -519,7 +519,7 @@ public class IterableOfProtosSubjectTest extends ProtoSubjectTestBase {
             TestMessage2.newBuilder().addRString("bar").addRString("foo").build());
   }
 
-  private Comparator<Message> compareByOIntAscending() {
+  private Comparator<Message> compareByoIntAscending() {
     return new Comparator<Message>() {
       @Override
       public int compare(Message message1, Message message2) {

@@ -13,6 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.google.common.truth.extensions.proto;
 
 import static com.google.common.base.Preconditions.checkNotNull;
@@ -304,7 +305,7 @@ public class ProtoSubjectTest extends ProtoSubjectTestBase {
         parse("r_string: 'b' r_string: 'a' o_sub_test_message: { r_string: 'd' r_string: 'c' }");
 
     FieldDescriptor rootMessageRepeatedfield = getFieldDescriptor("r_string");
-    FieldDescriptor subMessageRepeatedField =
+    final FieldDescriptor subMessageRepeatedField =
         checkNotNull(
             getFieldDescriptor("o_sub_test_message").getMessageType().findFieldByName("r_string"));
 

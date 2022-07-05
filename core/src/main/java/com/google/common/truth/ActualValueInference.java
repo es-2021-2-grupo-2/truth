@@ -271,7 +271,7 @@ final class ActualValueInference {
       localVariableSlots = createInitialLocalVariableSlots(access, owner, name, methodDescriptor);
       previousFrame =
           FrameInfo.create(
-              ImmutableList.copyOf(localVariableSlots), ImmutableList.<StackEntry>of());
+              ImmutableList.copyOf(localVariableSlots), ImmutableList.of());
       this.methodSignature = owner + "." + name + methodDescriptor;
       this.actualValueAtLine = actualValueAtLine;
     }
@@ -894,7 +894,7 @@ final class ActualValueInference {
         case Opcodes.F_SAME:
           // This frame type indicates that the frame has exactly the same local variables as the
           // previous frame and that the operand stack is empty.
-          previousFrame = FrameInfo.create(previousFrame.locals(), ImmutableList.<StackEntry>of());
+          previousFrame = FrameInfo.create(previousFrame.locals(), ImmutableList.of());
           break;
         case Opcodes.F_SAME1:
           // This frame type indicates that the frame has exactly the same local variables as the
@@ -908,7 +908,7 @@ final class ActualValueInference {
           previousFrame =
               FrameInfo.create(
                   appendArrayToList(previousFrame.locals(), nLocal, local),
-                  ImmutableList.<StackEntry>of());
+                  ImmutableList.of());
           break;
         case Opcodes.F_CHOP:
           // This frame type indicates that the frame has the same local variables as the previous
@@ -917,7 +917,7 @@ final class ActualValueInference {
           previousFrame =
               FrameInfo.create(
                   removeBackFromList(previousFrame.locals(), nLocal),
-                  ImmutableList.<StackEntry>of());
+                  ImmutableList.of());
           break;
         case Opcodes.F_FULL:
           previousFrame =

@@ -1378,7 +1378,7 @@ public class MultimapSubjectTest extends BaseSubjectTestCase {
   @Test
   public void comparingValuesUsing_containsExactlyEntriesIn_wrongTypeInActual() {
     ImmutableListMultimap<String, Object> actual =
-        ImmutableListMultimap.<String, Object>of(
+        ImmutableListMultimap.of(
             "abc", "+123", "def", "+64", "def", "0x40", "def", 999);
     ImmutableListMultimap<String, Integer> expected =
         ImmutableListMultimap.of("def", 64, "def", 123, "def", 64, "abc", 123);
@@ -1516,7 +1516,7 @@ public class MultimapSubjectTest extends BaseSubjectTestCase {
   @Test
   public void comparingValuesUsing_containsExactly_wrongTypeInActual() {
     ImmutableListMultimap<String, Object> actual =
-        ImmutableListMultimap.<String, Object>of(
+        ImmutableListMultimap.of(
             "abc", "+123", "def", "+64", "def", "0x40", "def", 999);
     expectFailureWhenTestingThat(actual)
         .comparingValuesUsing(STRING_PARSES_TO_INTEGER_CORRESPONDENCE)
@@ -1689,7 +1689,7 @@ public class MultimapSubjectTest extends BaseSubjectTestCase {
   @Test
   public void comparingValuesUsing_containsAtLeastEntriesIn_wrongTypeInActual() {
     ImmutableListMultimap<String, Object> actual =
-        ImmutableListMultimap.<String, Object>of(
+        ImmutableListMultimap.of(
             "abc", "+123", "def", "+64", "def", "0x40", "def", 999);
     ImmutableListMultimap<String, Integer> expected =
         ImmutableListMultimap.of("def", 64, "def", 123, "def", 64, "abc", 123);
@@ -1808,7 +1808,7 @@ public class MultimapSubjectTest extends BaseSubjectTestCase {
   @Test
   public void comparingValuesUsing_containsAtLeast_wrongTypeInActual() {
     ImmutableListMultimap<String, Object> actual =
-        ImmutableListMultimap.<String, Object>of(
+        ImmutableListMultimap.of(
             "abc", "+123", "def", "+64", "def", "0x40", "def", 999, "m", "+1");
     expectFailureWhenTestingThat(actual)
         .comparingValuesUsing(STRING_PARSES_TO_INTEGER_CORRESPONDENCE)

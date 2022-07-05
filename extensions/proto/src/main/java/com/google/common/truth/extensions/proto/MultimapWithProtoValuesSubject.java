@@ -657,7 +657,7 @@ public class MultimapWithProtoValuesSubject<M extends Message> extends MultimapS
     return comparingValuesUsing(
         config
             .withExpectedMessages(expectedValues)
-            .<M>toCorrespondence(FieldScopeUtil.getSingleDescriptor(actual.values())));
+            .toCorrespondence(FieldScopeUtil.getSingleDescriptor(actual.values())));
   }
 
   // The UsingCorrespondence methods have conflicting erasure with default MapSubject methods,
@@ -910,7 +910,7 @@ public class MultimapWithProtoValuesSubject<M extends Message> extends MultimapS
     @Override
     @CanIgnoreReturnValue
     public Ordered containsExactly() {
-      return subject.usingCorrespondence(Collections.<M>emptyList()).containsExactly();
+      return subject.usingCorrespondence(Collections.emptyList()).containsExactly();
     }
 
     @Override

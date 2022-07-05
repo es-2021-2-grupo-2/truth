@@ -13,6 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.google.common.truth;
 
 import static com.google.common.truth.ExpectFailure.assertThat;
@@ -44,7 +45,6 @@ public final class ExpectFailure8Test {
     AssertionError unused =
         expectFailureAbout(
             STRINGS,
-            (SimpleSubjectBuilderCallback<StringSubject, String>)
                 whenTesting -> whenTesting.that("foo").contains("bar"));
   }
 

@@ -20,6 +20,8 @@ import com.google.common.collect.Maps;
 import com.google.protobuf.Descriptors.FieldDescriptor;
 import com.google.protobuf.Message;
 import com.google.protobuf.UnknownFieldSet;
+
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -67,7 +69,8 @@ final class FieldNumberTree {
 
     // Known fields.
     Map<FieldDescriptor, Object> knownFieldValues = message.getAllFields();
-    for (FieldDescriptor field : knownFieldValues.keySet()) {
+    for (Iterator<FieldDescriptor> iterator = knownFieldValues.keySet().iterator(); iterator.hasNext(); ) {
+      FieldDescriptor field = iterator.next();
       SubScopeId subScopeId = SubScopeId.of(field);
       FieldNumberTree childTree = new FieldNumberTree();
       tree.children.put(subScopeId, childTree);

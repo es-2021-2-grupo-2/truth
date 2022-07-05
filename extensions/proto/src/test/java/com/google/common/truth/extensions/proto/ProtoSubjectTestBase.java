@@ -13,6 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.google.common.truth.extensions.proto;
 
 import static com.google.common.base.Preconditions.checkArgument;
@@ -52,7 +53,7 @@ import org.junit.Rule;
 public class ProtoSubjectTestBase {
 
   // Type information for subclasses.
-  static enum TestType {
+  enum TestType {
     IMMUTABLE_PROTO2(TestMessage2.getDefaultInstance()),
     PROTO3(TestMessage3.getDefaultInstance());
 

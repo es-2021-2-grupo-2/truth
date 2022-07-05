@@ -48,7 +48,7 @@ class FieldScopeLogicMap<V> implements FieldScopeLogicContainer<FieldScopeLogicM
   }
 
   private static final FieldScopeLogicMap<Object> EMPTY_INSTANCE =
-      new FieldScopeLogicMap<>(ImmutableList.<Entry<Object>>of());
+      new FieldScopeLogicMap<>(ImmutableList.of());
 
   // Key -> value mappings for this map.  Earlier entries override later ones.
   private final ImmutableList<Entry<V>> entries;

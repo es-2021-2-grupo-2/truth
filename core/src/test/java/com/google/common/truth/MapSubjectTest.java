@@ -751,7 +751,7 @@ public class MapSubjectTest extends BaseSubjectTestCase {
   @Test
   public void isEqualToFailureDiffering_sameToString() {
     ImmutableMap<String, Number> actual =
-        ImmutableMap.<String, Number>of("jan", 1, "feb", 2, "march", 3L);
+        ImmutableMap.of("jan", 1, "feb", 2, "march", 3L);
     ImmutableMap<String, Integer> expectedMap = ImmutableMap.of("jan", 1, "feb", 2, "march", 3);
 
     expectFailureWhenTestingThat(actual).isEqualTo(expectedMap);
@@ -1512,7 +1512,7 @@ public class MapSubjectTest extends BaseSubjectTestCase {
 
   @Test
   public void comparingValuesUsing_containsExactly_wrongValueTypeInActual() {
-    ImmutableMap<String, Object> actual = ImmutableMap.<String, Object>of("abc", "123", "def", 456);
+    ImmutableMap<String, Object> actual = ImmutableMap.of("abc", "123", "def", 456);
     expectFailureWhenTestingThat(actual)
         .comparingValuesUsing(STRING_PARSES_TO_INTEGER_CORRESPONDENCE)
         .containsExactly("def", 456, "abc", 123);
@@ -1750,7 +1750,7 @@ public class MapSubjectTest extends BaseSubjectTestCase {
   @Test
   public void comparingValuesUsing_containsExactlyEntriesIn_wrongValueTypeInActual() {
     ImmutableMap<String, Integer> expected = ImmutableMap.of("def", 456, "abc", 123);
-    ImmutableMap<String, Object> actual = ImmutableMap.<String, Object>of("abc", "123", "def", 456);
+    ImmutableMap<String, Object> actual = ImmutableMap.of("abc", "123", "def", 456);
     expectFailureWhenTestingThat(actual)
         .comparingValuesUsing(STRING_PARSES_TO_INTEGER_CORRESPONDENCE)
         .containsExactlyEntriesIn(expected);
@@ -1887,7 +1887,7 @@ public class MapSubjectTest extends BaseSubjectTestCase {
 
   @Test
   public void comparingValuesUsing_containsAtLeast_wrongValueTypeInExpectedActual() {
-    ImmutableMap<String, Object> actual = ImmutableMap.<String, Object>of("abc", "123", "def", 456);
+    ImmutableMap<String, Object> actual = ImmutableMap.of("abc", "123", "def", 456);
     expectFailureWhenTestingThat(actual)
         .comparingValuesUsing(STRING_PARSES_TO_INTEGER_CORRESPONDENCE)
         .containsAtLeast("def", 456);
@@ -1909,7 +1909,7 @@ public class MapSubjectTest extends BaseSubjectTestCase {
 
   @Test
   public void comparingValuesUsing_containsAtLeast_wrongValueTypeInUnexpectedActual_success() {
-    ImmutableMap<String, Object> actual = ImmutableMap.<String, Object>of("abc", "123", "def", 456);
+    ImmutableMap<String, Object> actual = ImmutableMap.of("abc", "123", "def", 456);
     assertThat(actual)
         .comparingValuesUsing(STRING_PARSES_TO_INTEGER_CORRESPONDENCE)
         .containsAtLeast("abc", 123);
@@ -2101,7 +2101,7 @@ public class MapSubjectTest extends BaseSubjectTestCase {
   @Test
   public void comparingValuesUsing_containsAtLeastEntriesIn_wrongValueTypeInExpectedActual() {
     ImmutableMap<String, Integer> expected = ImmutableMap.of("def", 456);
-    ImmutableMap<String, Object> actual = ImmutableMap.<String, Object>of("abc", "123", "def", 456);
+    ImmutableMap<String, Object> actual = ImmutableMap.of("abc", "123", "def", 456);
     expectFailureWhenTestingThat(actual)
         .comparingValuesUsing(STRING_PARSES_TO_INTEGER_CORRESPONDENCE)
         .containsAtLeastEntriesIn(expected);
@@ -2125,7 +2125,7 @@ public class MapSubjectTest extends BaseSubjectTestCase {
   public void
       comparingValuesUsing_containsAtLeastEntriesIn_wrongValueTypeInUnexpectedActual_success() {
     ImmutableMap<String, Integer> expected = ImmutableMap.of("abc", 123);
-    ImmutableMap<String, Object> actual = ImmutableMap.<String, Object>of("abc", "123", "def", 456);
+    ImmutableMap<String, Object> actual = ImmutableMap.of("abc", "123", "def", 456);
     assertThat(actual)
         .comparingValuesUsing(STRING_PARSES_TO_INTEGER_CORRESPONDENCE)
         .containsAtLeastEntriesIn(expected);

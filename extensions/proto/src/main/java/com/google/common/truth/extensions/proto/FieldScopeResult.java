@@ -80,7 +80,7 @@ enum FieldScopeResult {
 
   /**
    * Whether this field's sub-children should also be unilaterally included or excluded, conditional
-   * on {@link #included()}
+   * on {@link #included()}.
    */
   boolean recursive() {
     return recursive;

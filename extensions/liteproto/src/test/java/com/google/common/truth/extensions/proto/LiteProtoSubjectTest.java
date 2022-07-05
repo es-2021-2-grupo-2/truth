@@ -13,6 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.google.common.truth.extensions.proto;
 
 import static com.google.common.truth.ExpectFailure.assertThat;
@@ -62,7 +63,8 @@ public class LiteProtoSubjectTest {
     public static Builder newBuilder() {
       return new AutoValue_LiteProtoSubjectTest_Config.Builder();
     }
-
+    /**Class builder.*/
+    
     @AutoValue.Builder
     public abstract static class Builder {
       abstract Builder setNonEmptyMessage(MessageLite messageLite);
@@ -82,7 +84,8 @@ public class LiteProtoSubjectTest {
       abstract Config build();
     }
   }
-
+  /**Get data from a collection with objects.*/
+  
   @Parameters(name = "{0}")
   public static Collection<Object[]> data() {
     // Missing a required_int field.

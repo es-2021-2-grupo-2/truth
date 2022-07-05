@@ -684,7 +684,7 @@ public class IterableSubject extends Subject {
    */
   enum ElementFactGrouping {
     ALL_IN_ONE_FACT,
-    FACT_PER_ELEMENT;
+    FACT_PER_ELEMENT
   }
 
   /**

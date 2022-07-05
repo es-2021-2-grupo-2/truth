@@ -37,7 +37,7 @@ final class MathUtil {
    * either {@code left} or {@code right} is infinite or NaN.
    */
   public static boolean equalWithinTolerance(float left, float right, float tolerance) {
-    return equalWithinTolerance((double) left, (double) right, (double) tolerance);
+    return equalWithinTolerance(left, right, (double) tolerance);
   }
 
   /**
@@ -59,6 +59,6 @@ final class MathUtil {
    * either {@code left} or {@code right} is infinite or NaN.
    */
   public static boolean notEqualWithinTolerance(float left, float right, float tolerance) {
-    return notEqualWithinTolerance((double) left, (double) right, (double) tolerance);
+    return notEqualWithinTolerance(left, right, (double) tolerance);
   }
 }

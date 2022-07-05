@@ -13,6 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.google.common.truth.extensions.proto;
 
 import com.google.protobuf.Descriptors.FieldDescriptor;
@@ -492,7 +493,8 @@ public interface ProtoFluentAssertion {
    */
   void isNotEqualTo(@Nullable Message expected);
 
-  /**
+  /**Especifications of equals method.
+
    * @deprecated Do not call {@code equals()} on a {@code ProtoFluentAssertion}. Use {@link
    *     #isEqualTo(Message)} instead.
    * @see com.google.common.truth.Subject#equals(Object)
@@ -501,7 +503,8 @@ public interface ProtoFluentAssertion {
   @Deprecated
   boolean equals(Object o);
 
-  /**
+  /**Especifications of equals method.
+
    * @deprecated {@code ProtoFluentAssertion} does not support {@code hashCode()}. Use {@link
    *     #isEqualTo(Message)} for testing.
    * @see com.google.common.truth.Subject#hashCode()

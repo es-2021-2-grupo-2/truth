@@ -121,7 +121,7 @@ public class IntegerSubjectTest extends BaseSubjectTestCase {
   public void testPrimitivesVsBoxedPrimitivesVsObject_int() {
     int int42 = 42;
     Integer integer42 = new Integer(42);
-    Object object42 = (Object) 42;
+    Object object42 = 42;
 
     assertThat(int42).isEqualTo(int42);
     assertThat(integer42).isEqualTo(int42);
@@ -141,7 +141,7 @@ public class IntegerSubjectTest extends BaseSubjectTestCase {
   public void testPrimitivesVsBoxedPrimitivesVsObject_long() {
     long longPrim42 = 42;
     Long long42 = new Long(42);
-    Object object42 = (Object) 42L;
+    Object object42 = 42L;
 
     assertThat(longPrim42).isEqualTo(longPrim42);
     assertThat(long42).isEqualTo(longPrim42);
@@ -223,17 +223,17 @@ public class IntegerSubjectTest extends BaseSubjectTestCase {
     short short42 = (short) 42;
     char char42 = (char) 42;
     int int42 = 42;
-    long long42 = (long) 42;
+    long long42 = 42;
 
     ImmutableSet<Object> fortyTwos =
-        ImmutableSet.<Object>of(byte42, short42, char42, int42, long42);
+        ImmutableSet.of(byte42, short42, char42, int42, long42);
     for (Object actual : fortyTwos) {
       for (Object expected : fortyTwos) {
         assertThat(actual).isEqualTo(expected);
       }
     }
 
-    ImmutableSet<Object> fortyTwosNoChar = ImmutableSet.<Object>of(byte42, short42, int42, long42);
+    ImmutableSet<Object> fortyTwosNoChar = ImmutableSet.of(byte42, short42, int42, long42);
     for (final Object actual : fortyTwosNoChar) {
       for (final Object expected : fortyTwosNoChar) {
         ExpectFailure.SimpleSubjectBuilderCallback<Subject, Object> actualFirst =
@@ -259,10 +259,10 @@ public class IntegerSubjectTest extends BaseSubjectTestCase {
     short short41 = (short) 41;
     char char41 = (char) 41;
     int int41 = 41;
-    long long41 = (long) 41;
+    long long41 = 41;
 
     ImmutableSet<Object> fortyOnes =
-        ImmutableSet.<Object>of(byte41, short41, char41, int41, long41);
+        ImmutableSet.of(byte41, short41, char41, int41, long41);
 
     for (Object first : fortyTwos) {
       for (Object second : fortyOnes) {

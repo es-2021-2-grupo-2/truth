@@ -96,7 +96,7 @@ public class Subject {
 
   private final FailureMetadata metadata;
   private final Object actual;
-  private String customName = null;
+  private final String customName = null;
   private final @Nullable String typeDescriptionOverride;
 
   /**
@@ -255,7 +255,7 @@ public class Subject {
 
   private static long integralValue(Object o) {
     if (o instanceof Character) {
-      return (long) ((Character) o).charValue();
+      return ((Character) o).charValue();
     } else if (o instanceof Number) {
       return ((Number) o).longValue();
     } else {
@@ -489,7 +489,7 @@ public class Subject {
 
     private static final ComparisonResult EQUAL = new ComparisonResult(null);
     private static final ComparisonResult DIFFERENT_NO_DESCRIPTION =
-        new ComparisonResult(ImmutableList.<Fact>of());
+        new ComparisonResult(ImmutableList.of());
 
     private final @Nullable ImmutableList<Fact> facts;
 
@@ -502,7 +502,7 @@ public class Subject {
     }
 
     ImmutableList<Fact> factsOrEmpty() {
-      return firstNonNull(facts, ImmutableList.<Fact>of());
+      return firstNonNull(facts, ImmutableList.of());
     }
 
     /** Returns an instance with the same "equal"/"not-equal" bit but with no description. */
@@ -1193,7 +1193,7 @@ public class Subject {
 
   private ImmutableList<Fact> nameAsFacts() {
     return customName == null
-        ? ImmutableList.<Fact>of()
+        ? ImmutableList.of()
         : ImmutableList.of(fact("name", customName));
   }
 }

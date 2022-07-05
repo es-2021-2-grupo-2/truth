@@ -43,7 +43,7 @@ final class StackTraceCleaner {
    * the bottom. Collapses the frames for various frameworks in the middle of the trace as well.
    */
   static void cleanStackTrace(Throwable throwable) {
-    new StackTraceCleaner(throwable).clean(Sets.<Throwable>newIdentityHashSet());
+    new StackTraceCleaner(throwable).clean(Sets.newIdentityHashSet());
   }
 
   private final Throwable throwable;

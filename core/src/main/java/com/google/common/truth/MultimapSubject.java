@@ -461,7 +461,7 @@ public class MultimapSubject extends Subject {
   }
 
   private static List<?> difference(List<?> minuend, List<?> subtrahend) {
-    LinkedHashMultiset<Object> remaining = LinkedHashMultiset.<Object>create(subtrahend);
+    LinkedHashMultiset<Object> remaining = LinkedHashMultiset.create(subtrahend);
     List<Object> difference = Lists.newArrayList();
     for (Object elem : minuend) {
       if (!remaining.remove(elem)) {

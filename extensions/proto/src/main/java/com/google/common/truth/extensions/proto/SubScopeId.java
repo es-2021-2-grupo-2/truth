@@ -23,7 +23,7 @@ import com.google.protobuf.Descriptors.FieldDescriptor;
 abstract class SubScopeId {
   enum Kind {
     FIELD_DESCRIPTOR,
-    UNKNOWN_FIELD_DESCRIPTOR;
+    UNKNOWN_FIELD_DESCRIPTOR
   }
 
   abstract Kind kind();
@@ -41,8 +41,9 @@ abstract class SubScopeId {
             : fieldDescriptor().getName();
       case UNKNOWN_FIELD_DESCRIPTOR:
         return String.valueOf(unknownFieldDescriptor().fieldNumber());
+      default:
+        throw new AssertionError(kind());
     }
-    throw new AssertionError(kind());
   }
 
   static SubScopeId of(FieldDescriptor fieldDescriptor) {

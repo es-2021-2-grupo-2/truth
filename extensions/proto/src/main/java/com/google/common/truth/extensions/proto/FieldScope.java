@@ -39,8 +39,8 @@ import com.google.protobuf.Descriptors.FieldDescriptor;
  * FieldScopes.ignoringFields(A.B_FIELD_NUMBER)
  *     .allowingFieldDescriptors(B.getDescriptor().findFieldByName("flag"))
  * }</pre>
- *
- * ...will match all fields on A, except fields on the message type B, but including B's flag field.
+ * 
+ * <p>will match all fields on A, except fields on the message type B, but including B's flag field.
  * Thus, two messages of type A will compare equal even if their sub messages of type B are
  * completely different, so long as the 'flag' fields for each B matches. Because of this, method
  * ordering matters. Generally, exclusions should come after inclusions.

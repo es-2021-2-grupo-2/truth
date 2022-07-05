@@ -215,7 +215,7 @@ public class StandardSubjectBuilder {
    * {@link Truth#assertWithMessage}).
    */
   public final void fail() {
-    metadata().fail(ImmutableList.<Fact>of());
+    metadata().fail(ImmutableList.of());
   }
 
   private FailureMetadata metadata() {

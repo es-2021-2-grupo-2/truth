@@ -682,10 +682,11 @@ public class IterableOfProtosSubject<M extends Message> extends IterableSubject 
   // Overrides for IterableSubject Methods
   //////////////////////////////////////////////////////////////////////////////////////////////////
 
-  /**
+  /** Check if a list is in StrictOrder.
+
+   * @throws ClassCastException always
    * @deprecated Protos do not implement {@link Comparable}, so you must {@linkplain
    *     #isInStrictOrder(Comparator) supply a comparator}.
-   * @throws ClassCastException always
    */
   @Override
   @Deprecated
@@ -694,10 +695,11 @@ public class IterableOfProtosSubject<M extends Message> extends IterableSubject 
         "Protos do not implement Comparable, so you must supply a Comparator.");
   }
 
-  /**
+  /** Class Cast Exception.
+
+   * @throws ClassCastException always
    * @deprecated Protos do not implement {@link Comparable}, so you must {@linkplain
    *     #isInOrder(Comparator) supply a comparator}.
-   * @throws ClassCastException always
    */
   @Override
   @Deprecated
@@ -732,7 +734,7 @@ public class IterableOfProtosSubject<M extends Message> extends IterableSubject 
               subject
                   .config
                   .withExpectedMessages(messages)
-                  .<M>toCorrespondence(FieldScopeUtil.getSingleDescriptor(subject.actual)));
+                  .toCorrespondence(FieldScopeUtil.getSingleDescriptor(subject.actual)));
       if (keyFunction != null) {
         usingCorrespondence = usingCorrespondence.displayingDiffsPairedBy(keyFunction);
       }

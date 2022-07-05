@@ -13,6 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.google.common.truth;
 
 import static java.util.stream.Collectors.toCollection;
@@ -20,7 +21,9 @@ import static java.util.stream.Collectors.toCollection;
 import com.google.errorprone.annotations.CanIgnoreReturnValue;
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 import org.checkerframework.checker.nullness.qual.Nullable;
@@ -61,12 +64,12 @@ public final class IntStreamSubject extends Subject {
 
   /** Fails if the subject is not empty. */
   public void isEmpty() {
-    check().that(actualList).isEmpty();
+    assert actualList.isEmpty();
   }
 
   /** Fails if the subject is empty. */
   public void isNotEmpty() {
-    check().that(actualList).isNotEmpty();
+    assert !actualList.isEmpty();
   }
 
   /**
@@ -76,33 +79,35 @@ public final class IntStreamSubject extends Subject {
    * elements, use {@code assertThat(stream.count()).isEqualTo(...)}.
    */
   public void hasSize(int expectedSize) {
-    check().that(actualList).hasSize(expectedSize);
+    assert actualList.size() == expectedSize;
   }
 
   /** Fails if the subject does not contain the given element. */
   public void contains(int element) {
-    check().that(actualList).contains(element);
+    assert actualList.contains(element);
   }
 
   /** Fails if the subject contains the given element. */
   public void doesNotContain(int element) {
-    check().that(actualList).doesNotContain(element);
+    assert !actualList.contains(element);
   }
 
   /** Fails if the subject contains duplicate elements. */
   public void containsNoDuplicates() {
-    check().that(actualList).containsNoDuplicates();
+    Set<?> set = new HashSet<>(actualList);
+    assert set.size() > actualList.size();
   }
 
   /** Fails if the subject does not contain at least one of the given elements. */
-  @SuppressWarnings("GoodTime") // false positive; b/122617528
   public void containsAnyOf(int first, int second, int... rest) {
-    check().that(actualList).containsAnyOf(first, second, box(rest));
+    assert actualList.contains(first) 
+    || actualList.contains(second) 
+    || actualList.contains(box(rest));
   }
 
   /** Fails if the subject does not contain at least one of the given elements. */
   public void containsAnyIn(Iterable<?> expected) {
-    check().that(actualList).containsAnyIn(expected);
+    assert actualList.contains(expected);
   }
 
   /**
@@ -114,7 +119,7 @@ public final class IntStreamSubject extends Subject {
    * on the object returned by this method. The expected elements must appear in the given order
    * within the actual elements, but they are not required to be consecutive.
    */
-  @SuppressWarnings("GoodTime") // false positive; b/122617528
+  @SuppressWarnings("deprecation")
   @CanIgnoreReturnValue
   public Ordered containsAtLeast(int first, int second, int... rest) {
     return check().that(actualList).containsAtLeast(first, second, box(rest));
@@ -129,6 +134,7 @@ public final class IntStreamSubject extends Subject {
    * on the object returned by this method. The expected elements must appear in the given order
    * within the actual elements, but they are not required to be consecutive.
    */
+  @SuppressWarnings("deprecation")
   @CanIgnoreReturnValue
   public Ordered containsAtLeastElementsIn(Iterable<?> expected) {
     return check().that(actualList).containsAtLeastElementsIn(expected);
@@ -143,6 +149,7 @@ public final class IntStreamSubject extends Subject {
    * <p>To also test that the contents appear in the given order, make a call to {@code inOrder()}
    * on the object returned by this method.
    */
+  @SuppressWarnings("deprecation")
   @CanIgnoreReturnValue
   public Ordered containsExactly(int... varargs) {
     return check().that(actualList).containsExactly(box(varargs));
@@ -157,6 +164,7 @@ public final class IntStreamSubject extends Subject {
    * <p>To also test that the contents appear in the given order, make a call to {@code inOrder()}
    * on the object returned by this method.
    */
+  @SuppressWarnings("deprecation")
   @CanIgnoreReturnValue
   public Ordered containsExactlyElementsIn(Iterable<?> expected) {
     return check().that(actualList).containsExactlyElementsIn(expected);
@@ -166,9 +174,11 @@ public final class IntStreamSubject extends Subject {
    * Fails if the subject contains any of the given elements. (Duplicates are irrelevant to this
    * test, which fails if any of the actual elements equal any of the excluded.)
    */
-  @SuppressWarnings("GoodTime") // false positive; b/122617528
+  @SuppressWarnings({ "GoodTime"}) // false positive; b/122617528
   public void containsNoneOf(int first, int second, int... rest) {
-    check().that(actualList).containsNoneOf(first, second, box(rest));
+    assert !actualList.contains(first) 
+    && !actualList.contains(second) 
+    && !actualList.contains(box(rest));
   }
 
   /**
@@ -176,7 +186,7 @@ public final class IntStreamSubject extends Subject {
    * test, which fails if any of the actual elements equal any of the excluded.)
    */
   public void containsNoneIn(Iterable<?> excluded) {
-    check().that(actualList).containsNoneIn(excluded);
+    assert !actualList.contains(excluded);
   }
 
   /**
@@ -187,7 +197,8 @@ public final class IntStreamSubject extends Subject {
    * @throws ClassCastException if any pair of elements is not mutually Comparable
    * @throws NullPointerException if any element is null
    */
-  public void isInStrictOrder() {
+  @SuppressWarnings("deprecation")
+public void isInStrictOrder() {
     check().that(actualList).isInStrictOrder();
   }
 
@@ -198,7 +209,8 @@ public final class IntStreamSubject extends Subject {
    *
    * @throws ClassCastException if any pair of elements is not mutually Comparable
    */
-  public void isInStrictOrder(Comparator<? super Integer> comparator) {
+  @SuppressWarnings("deprecation")
+public void isInStrictOrder(Comparator<? super Integer> comparator) {
     check().that(actualList).isInStrictOrder(comparator);
   }
 
@@ -209,7 +221,8 @@ public final class IntStreamSubject extends Subject {
    * @throws ClassCastException if any pair of elements is not mutually Comparable
    * @throws NullPointerException if any element is null
    */
-  public void isInOrder() {
+  @SuppressWarnings("deprecation")
+public void isInOrder() {
     check().that(actualList).isInOrder();
   }
 
@@ -219,7 +232,8 @@ public final class IntStreamSubject extends Subject {
    *
    * @throws ClassCastException if any pair of elements is not mutually Comparable
    */
-  public void isInOrder(Comparator<? super Integer> comparator) {
+  @SuppressWarnings("deprecation")
+public void isInOrder(Comparator<? super Integer> comparator) {
     check().that(actualList).isInOrder(comparator);
   }
 

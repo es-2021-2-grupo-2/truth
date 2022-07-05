@@ -38,6 +38,7 @@ import org.junit.runners.JUnit4;
  */
 @RunWith(JUnit4.class)
 public class OverloadResolutionTest extends ProtoSubjectTestBase {
+  /**Load the Resolution Test.*/
   public OverloadResolutionTest() {
     // We don't bother testing Proto3 because it's immaterial to this test, and we want to ensure
     // that using Iterable<MyMessage> works, not just Iterable<Message>.
@@ -161,7 +162,7 @@ public class OverloadResolutionTest extends ProtoSubjectTestBase {
   public void testIterableOverloads_objects_actuallyNotMessages() {
     TestMessage2 message1 = TestMessage2.newBuilder().setOInt(1).addRString("foo").build();
     TestMessage2 message2 = TestMessage2.newBuilder().setOInt(2).addRString("bar").build();
-    ImmutableList<Object> altActualObjects = ImmutableList.<Object>of("Foo!", 42);
+    ImmutableList<Object> altActualObjects = ImmutableList.of("Foo!", 42);
 
     assertThat(altActualObjects).containsExactly(21 * 2, "Foo! Bar!".substring(0, 4));
     assertThat(altActualObjects).containsNoneOf(message1, message2);
@@ -224,7 +225,7 @@ public class OverloadResolutionTest extends ProtoSubjectTestBase {
   public void testMapOverloads_objects_actuallyNotMessages() {
     TestMessage2 message1 = TestMessage2.newBuilder().setOInt(1).addRString("foo").build();
     TestMessage2 message2 = TestMessage2.newBuilder().setOInt(2).addRString("bar").build();
-    ImmutableMap<String, Object> altActualObjects = mapOf("a", (Object) "Foo!", "b", 42);
+    ImmutableMap<String, Object> altActualObjects = mapOf("a", "Foo!", "b", 42);
 
     assertThat(altActualObjects).containsExactly("a", "Foo! Bar!".substring(0, 4), "b", 21 * 2);
     assertThat(altActualObjects).doesNotContainEntry("a", message1);
@@ -352,7 +353,7 @@ public class OverloadResolutionTest extends ProtoSubjectTestBase {
     TestMessage2 message1 = TestMessage2.newBuilder().setOInt(1).addRString("foo").build();
     TestMessage2 message2 = TestMessage2.newBuilder().setOInt(2).addRString("bar").build();
     ImmutableMultimap<String, Object> altActualObjects =
-        multimapOf("a", (Object) "Foo!", "a", "Baz!", "b", 42);
+        multimapOf("a", "Foo!", "a", "Baz!", "b", 42);
 
     assertThat(altActualObjects)
         .containsExactlyEntriesIn(
