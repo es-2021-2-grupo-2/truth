@@ -519,7 +519,7 @@ public abstract class Correspondence<A, E> {
    */
   public abstract boolean compare(A actual, E expected);
 
-  private static class StoredException {
+  private static class StoredExceptionDescritor {
 
     private static final Joiner ARGUMENT_JOINER = Joiner.on(", ").useForNull("null");
 
@@ -527,7 +527,7 @@ public abstract class Correspondence<A, E> {
     private final String methodName;
     private final List<Object> methodArguments;
 
-    StoredException(Exception exception, String methodName, List<Object> methodArguments) {
+    StoredExceptionDescritor(Exception exception, String methodName, List<Object> methodArguments) {
       this.exception = checkNotNull(exception);
       this.methodName = checkNotNull(methodName);
       this.methodArguments = checkNotNull(methodArguments);
@@ -552,9 +552,9 @@ public abstract class Correspondence<A, E> {
   static final class ExceptionStore {
 
     private final String argumentLabel;
-    private StoredException firstCompareException = null;
-    private StoredException firstPairingException = null;
-    private StoredException firstFormatDiffException = null;
+    private StoredExceptionDescritor firstCompareException = null;
+    private StoredExceptionDescritor firstPairingException = null;
+    private StoredExceptionDescritor firstFormatDiffException = null;
 
     static ExceptionStore forIterable() {
       return new ExceptionStore("elements");
@@ -583,7 +583,7 @@ public abstract class Correspondence<A, E> {
         Class<?> callingClass, Exception exception, Object actual, Object expected) {
       if (firstCompareException == null) {
         truncateStackTrace(exception, callingClass);
-        firstCompareException = new StoredException(exception, "compare", asList(actual, expected));
+        firstCompareException = new StoredExceptionDescritor(exception, "compare", asList(actual, expected));
       }
     }
 
@@ -601,7 +601,7 @@ public abstract class Correspondence<A, E> {
       if (firstPairingException == null) {
         truncateStackTrace(exception, callingClass);
         firstPairingException =
-            new StoredException(exception, "actualKeyFunction.apply", asList(actual));
+            new StoredExceptionDescritor(exception, "actualKeyFunction.apply", asList(actual));
       }
     }
 
@@ -620,7 +620,7 @@ public abstract class Correspondence<A, E> {
       if (firstPairingException == null) {
         truncateStackTrace(exception, callingClass);
         firstPairingException =
-            new StoredException(exception, "expectedKeyFunction.apply", asList(expected));
+            new StoredExceptionDescritor(exception, "expectedKeyFunction.apply", asList(expected));
       }
     }
 
@@ -640,7 +640,7 @@ public abstract class Correspondence<A, E> {
       if (firstFormatDiffException == null) {
         truncateStackTrace(exception, callingClass);
         firstFormatDiffException =
-            new StoredException(exception, "formatDiff", asList(actual, expected));
+            new StoredExceptionDescritor(exception, "formatDiff", asList(actual, expected));
       }
     }
 
